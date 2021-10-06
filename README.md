@@ -1,6 +1,6 @@
 # lab-06 ORM
 
-* Database is stored in local file `starwars.sqlite3` and package `sequelize` can access to it
+* Database is stored in local file `starwars.sqlite3` and package `sequelize` ([documentation](https://sequelize.org/master/manual/getting-started.html)) can access to it
   * You can check data in VSCode via plugin or find another tool how to check data in DB
   * Check `starwars.sqlite3.sql` - script for creating DB and initial data in it
   * 
@@ -12,7 +12,7 @@
 
 ### TASK 2: Create endpoint for creating new planet
 * ADD new planet into DB
-* If success, return json `{success: "OK", data: { new planet}}`
+* If success, return **JSON** `{success: "OK", data: { new planet}}`
 * Catch all errors
 
 
@@ -34,7 +34,7 @@
 
 ### TASK 5: Create endpoint for deleting planet
 * Delete planet in DB
-* return json `{ deleted: "OK", data: {deleted_planet}}`
+* return **JSON** `{ deleted: "OK", data: {deleted_planet}}`
 * Catch all errors
 
 ### BONUS 
