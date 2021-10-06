@@ -1,4 +1,9 @@
 # lab-06 ORM
+
+* Database is stored in local file `starwars.sqlite3` and package `sequelize` can access to it
+  * You can check data in VSCode via plugin or find another tool how to check data in DB
+  * Check `starwars.sqlite3.sql` - script for creating DB and initial data in it
+  * 
 ## TASKS
 ### TASK 1: Create model for PLANETS in file `src/models/planet.js`
 * Check `src/models/user.js` as example how to do it
@@ -31,3 +36,6 @@
 * Delete planet in DB
 * return json `{ deleted: "OK", data: {deleted_planet}}`
 * Catch all errors
+
+### BONUS 
+* Create tests for your endpoints `/planets/` and  `/planets/terrain/:terrain` in `/tests/server.test.js`
