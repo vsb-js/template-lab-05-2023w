@@ -91,11 +91,11 @@ app.get('/planets/terrain/:terrain', async (req, res) => {
 // Delete planet in DB
 // return json { deleted: "OK", data: {deleted_planet}}
 // Catch all errors
+app.get('/planets/delete/:id', async(req, res) => {
 
+})
 
 // this only show that it listen on port 3000.
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+
 
 export { app };
