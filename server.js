@@ -3,7 +3,6 @@ import express from 'express'
 import { User } from './models/user.js';
 
 const app = express()
-const port = 3000
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -67,7 +66,7 @@ app.post('/planets/create', async (req, res) => {
 })
 
 
-// TASK 3: Read all planets
+// TASK 3: Create endpoint for reading all planets
 // Read all planets from DB
 // If success, return array of objects
 // Catch all errors
@@ -75,7 +74,7 @@ app.get('/planets/', async (req, res) => {
 
 })
 
-// TASK 4: Return specific planets with terrain
+// TASK 4: Create endpoint for returning specific planets with terrain
 // Read specific planets from DB
 // you need to find terrain in the string! 
 // Examples /planets/terrain/mountains -> returns 4 planets
@@ -87,11 +86,11 @@ app.get('/planets/terrain/:terrain', async (req, res) => {
 
 })
 
-// TASK 5: Delete planet
+// TASK 5: Create endpoint for deleting planet
 // Delete planet in DB
 // return json { deleted: "OK", data: {deleted_planet}}
 // Catch all errors
-app.get('/planets/delete/:id', async(req, res) => {
+app.get('/planets/delete/:id', async (req, res) => {
 
 })
 
