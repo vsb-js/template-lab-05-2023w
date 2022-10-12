@@ -1,7 +1,5 @@
 import express from 'express'
 
-import { User } from './models/user.js';
-
 const app = express()
 
 app.use(express.json());

@@ -19,9 +19,7 @@
   },
   "homepage": "https://github.com/vsb-js/lab-06#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "sequelize": "^6.6.5",
-    "sqlite3": "^5.0.2"
+    "express": "^4.17.1"
   },
   "type": "module",
   "devDependencies": {
