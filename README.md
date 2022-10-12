@@ -1,41 +1,48 @@
 # lab-06 ORM
 
-* Database is stored in local file `starwars.sqlite3` and package `sequelize` ([documentation](https://sequelize.org/master/manual/getting-started.html)) can access to it
-  * You can check data in VSCode via plugin or find another tool how to check data in DB
-  * Check `starwars.sqlite3.sql` - script for creating DB and initial data in it
-  * 
-## TASKS
-### TASK 1: Create model for PLANETS in file `src/models/planet.js`
-* Check `src/models/user.js` as example how to do it
-* Check DB for schema - it should match and import it to this file
+We will follow quick start for prisma tutorial but with combination of express
+https://www.prisma.io/docs/getting-started/quickstart
 
+Steps:
+1. Install the prisma in this project
+ `npm install prisma --save-dev`
 
-### TASK 2: Create endpoint for creating new planet
-* ADD new planet into DB
-* If success, return **JSON** `{success: "OK", data: { new planet}}`
-* Catch all errors
+2. Init the sqlite `npx prisma init --datasource-provider sqlite`
 
+3. Find the file `prisma/schema.prisma` 
+and add into it:
+```javascript
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  posts Post[]
+}
 
-### TASK 3: Create endpoint for reading all planets
-* Read all planets from DB
-* If success, return array of objects
-* Catch all errors
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  author    User    @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+```
+  Models in the Prisma schema have two main purposes:
 
+  Represent the tables in the underlying database
+  Serve as foundation for the generated Prisma Client API
 
-### TASK 4: Create endpoint for returning specific planets with terrain
-* Read specific planets from DB - you need to find terrain in the string! 
-* Examples
-  * `/planets/terrain/mountains` -> returns 4 planets
-  * `/planets/terrain/ocean` -> returns 1 planet
-  * `/planet/terrain/grassy-hills` -> returns 1 planet
-* Return  array of objects (can be array with one item)
-* Catch all errors
+4. Run the migration `npx prisma migrate dev --name init`
+ 
+    This command did two things:
+    It creates a new SQL migration file for this migration in the prisma/migrations directory.
+    It runs the SQL migration file against the database.
+    Because the SQLite database file didn't exist before, the command also created it inside the prisma directory with the name dev.db as defined via the environment variable in the .env file.
 
+----------------
+Now your DB and prisma is setup. 
 
-### TASK 5: Create endpoint for deleting planet
-* Delete planet in DB
-* return **JSON** `{ deleted: "OK", data: {deleted_planet}}`
-* Catch all errors
+5. Let's create a first user running `node script.js` it should print you the newly created user. 
 
-### BONUS 
-* Create tests for your endpoints `/planets/` and  `/planets/terrain/:terrain` in `/tests/server.test.js`
+6. Let's work on the tasks in server.js
