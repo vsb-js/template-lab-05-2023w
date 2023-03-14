@@ -38,7 +38,7 @@ app.post('/users/create', async (req, res) => {
 })
 
 // TASK 5 - Create POST
-app.get('/posts/create', async (req, res) => {
+app.post('/posts/create', async (req, res) => {
 
 })
 
