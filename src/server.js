@@ -1,4 +1,8 @@
 import express from 'express'
+// You need to import prisma here
+// You need to create a client instance here
+// Check script.js file for more info
+
 
 const app = express()
 

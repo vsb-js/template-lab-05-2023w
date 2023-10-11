@@ -1,4 +1,4 @@
-# lab-06 ORM
+# lab-05 ORM
 
 We will follow quick start for prisma tutorial but with combination of express
 https://www.prisma.io/docs/getting-started/quickstart
